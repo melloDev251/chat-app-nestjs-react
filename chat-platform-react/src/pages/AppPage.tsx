@@ -64,7 +64,7 @@ export const AppPage = () => {
       },
     });
     dispatch(setPeer(newPeer));
-  }, []);
+  }, [dispatch, user]);
 
   useFriendRequestReceived();
   useVideoCall();

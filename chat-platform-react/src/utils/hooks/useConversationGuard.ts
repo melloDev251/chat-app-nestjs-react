@@ -6,6 +6,7 @@ export function useConversationGuard() {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const controller = new AbortController();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export function useConversationGuard() {
     return () => {
       controller.abort();
     };
-  }, [id]);
+  }, [controller, id]);
 
   return { loading, error };
 }

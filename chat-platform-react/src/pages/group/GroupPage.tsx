@@ -34,7 +34,7 @@ export const GroupPage = () => {
   useEffect(() => {
     dispatch(updateType('group'));
     dispatch(fetchGroupsThunk());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const handleResize = () => setShowSidebar(window.innerWidth > 800);
@@ -123,7 +123,7 @@ export const GroupPage = () => {
       socket.off('onGroupParticipantLeft');
       socket.off('onGroupOwnerUpdate');
     };
-  }, [id]);
+  }, [dispatch, id, navigate, socket, user?.id]);
 
   return (
     <>

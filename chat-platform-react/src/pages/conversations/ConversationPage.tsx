@@ -31,7 +31,7 @@ export const ConversationPage = () => {
   useEffect(() => {
     dispatch(updateType('private'));
     dispatch(fetchConversationsThunk());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     socket.on('onMessage', (payload: MessageEventPayload) => {
@@ -57,7 +57,7 @@ export const ConversationPage = () => {
       socket.off('onConversation');
       socket.off('onMessageDelete');
     };
-  }, [id]);
+  }, [dispatch, id, socket]);
 
   return (
     <>

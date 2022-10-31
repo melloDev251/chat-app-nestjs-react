@@ -19,7 +19,7 @@ export const ConversationChannelPage = () => {
   useEffect(() => {
     const conversationId = parseInt(id!);
     dispatch(fetchMessagesThunk(conversationId));
-  }, [id]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     const conversationId = id!;
@@ -52,7 +52,7 @@ export const ConversationChannelPage = () => {
       socket.off('onTypingStop');
       socket.off('onMessageUpdate');
     };
-  }, [id]);
+  }, [dispatch, id, socket]);
 
   const sendTypingStatus = () => {
     if (isTyping) {

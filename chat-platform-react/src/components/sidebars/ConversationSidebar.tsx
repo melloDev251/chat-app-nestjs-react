@@ -50,13 +50,13 @@ export const ConversationSidebar = () => {
     const handleResize = (e: UIEvent) => dispatch(toggleContextMenu(false));
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const handleClick = () => dispatch(toggleContextMenu(false));
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
